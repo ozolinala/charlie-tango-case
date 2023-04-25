@@ -19,3 +19,9 @@
 .content :last-child {
   margin-bottom: 0;
 }
+
+.buyersCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
