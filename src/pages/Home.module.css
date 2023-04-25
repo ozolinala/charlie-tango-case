@@ -23,7 +23,7 @@
   margin-bottom: 1rem
 }
 .content :first-child {
-  margin-top: 0;
+  margin-top: 0.1;
 }
 .content :last-child {
   margin-bottom: 0;
@@ -31,21 +31,27 @@
 
 .form {
   background-color: var(--dusty-blue-lighter);
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  margin-top: 0.8rem;
   font-weight: 700;
   display: block;
 }
 
 .form input {
-  padding: 0.5rem;
+  padding: 0.6rem;
+  width: 14.8rem;
 }
-
+.form select{
+  padding: 0.6rem;
+  width: 14.8rem;
+}
 .button {
-  padding: 0.5rem;
+  padding: 0.7rem;
+  width: 7.8rem;
   background: var(--blue);
   color: var(--white);
 }
