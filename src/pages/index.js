@@ -8,12 +8,8 @@ export default function Home() {
         <title>Find buyer | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1 className={styles.headline}>Hello MMD</h1>
-        <div className={styles.content}>
-          <p>
-            To get started, edit <code>pages/index.js</code> and save to reload.
-          </p>
-        </div>
+        <h1 className={styles.headline1}>Find a </h1><h1 className={styles.headline}> buyer </h1>  <h1 className={styles.headline1}>for your property</h1>
+       
         <div className={styles.content}>
           <h2>Basic form example</h2>
           <p>
