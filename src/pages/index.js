@@ -11,27 +11,39 @@ export default function Home() {
         <h1 className={styles.headline1}>Find a </h1><h1 className={styles.headline}> buyer </h1>  <h1 className={styles.headline1}>for your property</h1>
        
         <div className={styles.content}>
-          <h2>Basic form example</h2>
+          <h2>Start the search</h2>
           <p>
-            This is simple example of how you could submit a form to another
-            page in Next.js, without using a custom <code>submit</code> function
-            (e.g. without JavaScript). It is unstyled and unfinished. You can
-            use this as base, or implement your own solution.
+          In order for us to effectively identify potential buyers, we kindly request that you provide us with the necessary information regarding the property that you are planning to sell. 
           </p>
-          <p>
-            Make sure to read the guide on{" "}
-            <a
-              href="https://nextjs.org/docs/guides/building-forms"
-              target="_blank"
-            >
-              building forms in Next.js
-            </a>
-          </p>
-          <form action="/buyers" method="GET" className={styles.form}>
+      <br></br>
+          <form action="/buyers" method="GET" className={styles.form}>    
+            <label>
+              <span className={styles.label}>Estate Type</span>
+              <select name="estateType" id="cars">
+  <option id="1">Villa</option>
+  <option id="2">Villalejlighed</option>
+  <option id="3">Rækkehus</option>
+  <option id="4">Ejerlejlighed</option>
+  <option id="5">Fritidshus</option>
+  <option id="6">Fritidsgrund</option>
+  <option id="7">Helårsgrund</option>
+  <option id="8">Andelsbolig</option>
+  <option id="9">Landejendom</option>
+</select>
+            </label><br></br>
+            <label>
+              <span className={styles.label}>Size</span>
+              <input type="number" name="size" required />
+            </label><br></br>
+            <label>
+              <span className={styles.label}>Price</span>
+              <input type="number" min="100" name="price" required />
+            </label> <br></br>
             <label>
               <span className={styles.label}>Zip Code</span>
               <input name="zipCode" required />
-            </label>
+            </label> <br></br>
+            <br></br>
             <button className={styles.button}>Submit</button>
           </form>
         </div>
