@@ -1,49 +1,95 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { estateTypes } from "@/data/estateTypes";
 
 export default function Home() {
+  const [size, setSize] = useState("");
+  const [estateType, setEstateType] = useState("1");
+  const [zipCode, setZipCode] = useState("");
+  const [price, setPrice] = useState("");
+  const router = useRouter();
+
+  const handleZipCodeChange = (event) => {
+    setZipCode(event.target.value);
+  };
+
+  const handleEstateTypeChange = (event) => {
+    setEstateType(event.target.value);
+  };
+
+  const handleSizeChange = (event) => {
+    setSize(event.target.value);
+  };
+
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    router.push({
+      pathname: "/buyers",
+      query: { zipCode, estateType, size, price },
+    });
+  };
+
   return (
     <>
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1 className={styles.headline1}>Find a </h1><h1 className={styles.headline}> buyer </h1>  <h1 className={styles.headline1}>for your property</h1>
-       
+        <h1 className={styles.headline}>Homepage</h1>
         <div className={styles.content}>
-          <h2>Start the search</h2>
-          <p>
-          In order for us to effectively identify potential buyers, we kindly request that you provide us with the necessary information regarding the property that you are planning to sell. 
-          </p>
-      <br></br>
-          <form action="/buyers" method="GET" className={styles.form}>    
-            <label>
-              <span className={styles.label}>Estate Type</span>
-              <select name="estateType" id="cars">
-  <option id="1">Villa</option>
-  <option id="2">Villalejlighed</option>
-  <option id="3">Rækkehus</option>
-  <option id="4">Ejerlejlighed</option>
-  <option id="5">Fritidshus</option>
-  <option id="6">Fritidsgrund</option>
-  <option id="7">Helårsgrund</option>
-  <option id="8">Andelsbolig</option>
-  <option id="9">Landejendom</option>
-</select>
-            </label><br></br>
-            <label>
-              <span className={styles.label}>Size</span>
-              <input type="number" name="size" required />
-            </label><br></br>
-            <label>
-              <span className={styles.label}>Price</span>
-              <input type="number" min="100" name="price" required />
-            </label> <br></br>
+          <form onSubmit={handleSubmit} className={styles.form}>
             <label>
               <span className={styles.label}>Zip Code</span>
-              <input name="zipCode" required />
-            </label> <br></br>
-            <br></br>
+              <input
+                value={zipCode}
+                onChange={handleZipCodeChange}
+                name="zipCode"
+                required
+              />
+            </label>
+            <br />
+            <label>
+              <span className={styles.label}>Price</span>
+              <input
+                value={price}
+                onChange={handlePriceChange}
+                name="price"
+                required
+              />
+            </label>
+            <label className={styles.sizeIcon}>
+              <span className={styles.label}>Size</span>
+              <input
+                value={size}
+                onChange={handleSizeChange}
+                name="size"
+                required
+              />
+            </label>
+            <label>
+              <span val className={styles.label}>
+                Estate type
+              </span>
+
+              <select
+                value={estateType}
+                onChange={handleEstateTypeChange}
+                name="estateType"
+                required
+              >
+                {estateTypes.map(({ id, name }) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </label>
             <button className={styles.button}>Submit</button>
           </form>
         </div>
