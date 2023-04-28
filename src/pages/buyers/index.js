@@ -7,6 +7,14 @@ import { BuyerCard } from "@/components/Header/BuyerCard";
 export default function Buyers() {
   const { query } = useRouter();
 
+  const [selectedList, setSelectedList] = useState([]);
+
+  function addSelected(selectedBuyer) {
+    setSelectedList(selectedList.concat(selectedBuyer));
+
+    console.log(selectedList);
+  }
+
   return (
     <>
       <Head>
@@ -16,7 +24,7 @@ export default function Buyers() {
       <div className="wrapper">
         <button>Next Step</button>
         <h1 className={styles.headline}>Potential buyers</h1>
-        <BuyerCard />
+        <BuyerCard addSelected={addSelected} />
         <div className={styles.content}>
           <h2>Query params:</h2>
           <pre>

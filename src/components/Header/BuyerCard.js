@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styles from "../../pages/buyers/Buyers.module.css";
 import { estateTypes } from "@/data/estateTypes";
 
-export function BuyerCard() {
+export function BuyerCard(props) {
   const [buyers, setBuyers] = useState([]);
   const { query } = useRouter();
   console.log(query.zipCode);
@@ -23,13 +23,13 @@ export function BuyerCard() {
     return estateType ? estateType.name : null;
   }
 
-  const [selectedList, setSelectedList] = useState([]);
+  /* const [selectedList, setSelectedList] = useState([]);
 
   function addSelected(selectedBuyer) {
     setSelectedList(selectedList.concat(selectedBuyer));
 
     console.log(selectedList);
-  }
+  } */
 
   return (
     <div className={styles.buyersCardGrid}>
@@ -38,7 +38,7 @@ export function BuyerCard() {
           className={styles.buyersCard}
           key={buyer.id}
           onClick={() => {
-            addSelected(buyer);
+            props.addSelected(buyer);
           }}
         >
           <p>
