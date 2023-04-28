@@ -20,7 +20,7 @@
   padding: 1rem;
   background-color: var(--dusty-aqua-light);
   border: 1px solid var(--dusty-aqua);
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 .content :first-child {
   margin-top: 0.1;
@@ -45,7 +45,7 @@
   padding: 0.6rem;
   width: 14.8rem;
 }
-.form select{
+.form select {
   padding: 0.6rem;
   width: 14.8rem;
 }
@@ -57,4 +57,42 @@
 }
 .button:hover {
   background: var(--hover);
+}
+
+.list_section ul {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-left: 0;
+}
+
+.list_section li {
+  list-style: none;
+  margin: 0;
+  background-color: var(--grey);
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+}
+
+.list_section li h1 {
+  color: var(--dark-blue);
+}
+
+.list_section li button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--dark-grey);
+  border-radius: 5px;
+  text-align: center;
+  top: 10px;
+  right: 10px;
+}
+
+.form .checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
 }
