@@ -1,5 +1,5 @@
 .headline {
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: var(--font-serif);
   text-align: center;
   font-weight: 400;
@@ -54,6 +54,10 @@
   width: 7.8rem;
   background: var(--blue);
   color: var(--white);
+  vertical-align: middle;
+}
+.button svg{
+  height: 0.8rem;
 }
 .button:hover {
   background: var(--hover);
@@ -96,3 +100,4 @@
   height: 20px;
   margin-right: 1rem;
 }
+
