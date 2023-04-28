@@ -6,7 +6,6 @@ import { estateTypes } from "@/data/estateTypes";
 export function BuyerCard() {
   const [buyers, setBuyers] = useState([]);
   const { query } = useRouter();
-  console.log(query.zipCode);
   useEffect(() => {
     fetch(
       `/api/find-buyers?zipCode=${query.zipCode}&estateType=${query.estateType}&size=${query.size}&price=${query.price}`
@@ -14,7 +13,19 @@ export function BuyerCard() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setBuyers(data);
+        // apply filter based on query parameters
+        const filteredData = data.filter((buyer) => {
+          if (
+            (!query.zipCode || query.zipCode === buyer.zipCode) &&
+            (!query.estateType || query.estateType === buyer.estateType) &&
+            (!query.size || query.size <= buyer.minSize) &&
+            (!query.price || query.price >= buyer.maxPrice)
+          ) {
+            return true;
+          }
+          return false;
+        });
+        setBuyers(filteredData);
       });
   }, [query]);
 
@@ -22,13 +33,25 @@ export function BuyerCard() {
     const estateType = estateTypes.find((type) => type.id === id);
     return estateType ? estateType.name : null;
   }
+
+  function test(e) {
+    console.log(e.target.cheched);
+  }
   return (
     <div className={styles.buyersCardGrid}>
       {buyers.map((buyer) => (
         <div className={styles.buyersCard} key={buyer.id}>
-          <p>
-            <strong>ID: </strong> {buyer.id}
-          </p>
+          <div className={styles.CheckboxFlex}>
+            <p>
+              <strong>ID: </strong> {buyer.id}
+            </p>
+            <input
+              className={styles.checkBoxFavorite}
+              type="checkbox"
+              name="favoriteCheck"
+              onChange={test}
+            ></input>
+          </div>
 
           <p>
             <span className={styles.estateTypeStyling}>
@@ -58,8 +81,8 @@ export function BuyerCard() {
           <p>
             <span className={styles.p}>{buyer.description}</span>
           </p>
-          {/* <p>SIZE: {buyer.minSize + "㎡"}</p>
-      <p>{buyer.maxPrice + " DKK"}</p> */}
+
+          <p>{buyer.maxPrice + " DKK"}</p>
         </div>
       ))}
     </div>

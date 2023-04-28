@@ -50,7 +50,6 @@ export default function Home() {
                 value={zipCode}
                 onChange={handleZipCodeChange}
                 name="zipCode"
-                required
               />
             </label>
             <br />

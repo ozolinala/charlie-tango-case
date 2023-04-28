@@ -61,3 +61,13 @@
   font-weight: 300;
   font-size: 0.9em;
 }
+
+.CheckboxFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="checkbox"].checkBoxFavorite {
+  width: 1.5rem;
+  accent-color: var(--dark-blue);
+}
