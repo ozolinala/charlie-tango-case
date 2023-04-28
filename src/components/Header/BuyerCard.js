@@ -23,24 +23,24 @@ export function BuyerCard(props) {
     return estateType ? estateType.name : null;
   }
 
-  /* const [selectedList, setSelectedList] = useState([]);
-
-  function addSelected(selectedBuyer) {
-    setSelectedList(selectedList.concat(selectedBuyer));
-
-    console.log(selectedList);
-  } */
+  function handleSelected(e, buyer) {
+    if (e.target.checked) {
+      props.addSelected(buyer);
+    } else {
+      props.removeSelected(buyer.id);
+    }
+  }
 
   return (
     <div className={styles.buyersCardGrid}>
       {buyers.map((buyer) => (
-        <div
-          className={styles.buyersCard}
-          key={buyer.id}
-          onClick={() => {
-            props.addSelected(buyer);
-          }}
-        >
+        <div className={styles.buyersCard} key={buyer.id}>
+          <input
+            type="checkbox"
+            onChange={(e) => {
+              handleSelected(e, buyer);
+            }}
+          ></input>
           <p>
             <strong>ID: </strong> {buyer.id}
           </p>
