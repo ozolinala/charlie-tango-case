@@ -5,19 +5,8 @@ import { useEffect, useState } from "react";
 import { BuyerCard } from "@/components/Header/BuyerCard";
 
 export default function Buyers() {
-  const [buyers, setBuyers] = useState([]);
   const { query } = useRouter();
 
-  useEffect(() => {
-    fetch(
-      `/api/find-buyers?zipCode=${query.zipCode}&estateType=${query.estateType}&size=${query.size}&price=${query.price}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setBuyers(data);
-      });
-  }, [query]);
   return (
     <>
       <Head>

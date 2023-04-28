@@ -11,14 +11,14 @@ export default function handler(req, res) {
 
   // Find the zip code from the query parameters, and use it to generate a list of (fake) buyer profiles.
   const zipCode = parseInt(req.query.zipCode || "2100");
-  const maxPrice = parseInt(req.query.maxPrice || "3000000");
-  const minSize = parseInt(req.query.minSize || "150");
+  const price = parseInt(req.query.maxPrice || "3000000");
+  const size = parseInt(req.query.minSize || "150");
   const estateType = req.query.estateType || "3";
 
   const profilesForZipCode = generateBuyerProfiles({
     zipCode,
-    price: maxPrice,
-    size: minSize,
+    price,
+    size,
     estateType,
   });
 
