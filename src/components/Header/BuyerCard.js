@@ -22,10 +22,25 @@ export function BuyerCard() {
     const estateType = estateTypes.find((type) => type.id === id);
     return estateType ? estateType.name : null;
   }
+
+  const [selectedList, setSelectedList] = useState([]);
+
+  function addSelected(selectedBuyer) {
+    setSelectedList(selectedList.concat(selectedBuyer));
+
+    console.log(selectedList);
+  }
+
   return (
     <div className={styles.buyersCardGrid}>
       {buyers.map((buyer) => (
-        <div className={styles.buyersCard} key={buyer.id}>
+        <div
+          className={styles.buyersCard}
+          key={buyer.id}
+          onClick={() => {
+            addSelected(buyer);
+          }}
+        >
           <p>
             <strong>ID: </strong> {buyer.id}
           </p>

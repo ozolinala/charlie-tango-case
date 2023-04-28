@@ -12,7 +12,9 @@ export default function Buyers() {
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
+
       <div className="wrapper">
+        <button>Next Step</button>
         <h1 className={styles.headline}>Potential buyers</h1>
         <BuyerCard />
         <div className={styles.content}>
