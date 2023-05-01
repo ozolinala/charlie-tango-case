@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./Home.module.css";
+import styles from "./contact/Contact.module.css";
 import { useState } from "react";
 import Selected from "@/components/Header/Selected";
 
@@ -53,8 +53,10 @@ export default function Contact(props) {
       </Head>
 
       <div className="wrapper">
-        <h1 className={styles.headline1}>Contact potential</h1>
-        <h1 className={styles.headline}> buyers </h1>{" "}
+      <div className={styles.head}>
+        <h1 className={styles.headline1}>TIME FOR </h1>
+        <h1 className={styles.headline}> your contact </h1>{" "}
+        <h1 className={styles.headline1}>DETAILS</h1></div>
         <div className={styles.content}>
           <div className={styles.list_section}>
             <h2>Selected Buyers</h2>

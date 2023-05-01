@@ -33,12 +33,14 @@ export function BuyerCard(props) {
     <div className={styles.buyersCardGrid}>
       {buyers.map((buyer) => (
         <div className={styles.buyersCard} key={buyer.id}>
-          <input
+         <div className={styles.buyersCardCheckbox}>
+          <input 
             type="checkbox"
+            className={styles.customCheckbox}
             onChange={(e) => {
               handleSelected(e, buyer);
             }}
-          ></input>
+          ></input></div> 
           <p>
             <strong>ID: </strong> {buyer.id}
           </p>
@@ -64,7 +66,7 @@ export function BuyerCard(props) {
           </div>
           <p>
             <span className={styles.sizeIcon}></span>
-            {buyer.minSize + "㎡"}
+            {buyer.minSize + " ㎡"}
           </p>
 
           <br />
@@ -72,8 +74,7 @@ export function BuyerCard(props) {
             <span className={styles.p}>{buyer.description}</span>
           </p>
 
-          <p>{buyer.maxPrice + " DKK"}</p>
-        </div>
+          <p> <strong>{buyer.maxPrice.toLocaleString("en-US", { useGrouping: true, minimumFractionDigits: 0 }).replace(/,/g, ".") + " DKK"} </strong> </p>       </div>
       ))}
     </div>
   );

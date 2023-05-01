@@ -1,0 +1,107 @@
+.headline {
+    font-size: 3.5rem;
+    font-family: var(--font-serif);
+    text-align: center;
+    font-weight: 400;
+    color:var(--yellow);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    line-height: 1.4;
+    display: inline;
+  }
+  .headline1 {
+    font-size: 1.3rem;
+    font-family: var(--font-sans);
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    display: inline;
+  }
+  .head{
+    text-align: center;
+  }
+  .content {
+    padding: 1rem;
+    background-color: var(--dusty-aqua-light);
+    border: 1px solid var(--dusty-aqua);
+    margin-bottom: 1rem;
+  }
+  .content :first-child {
+    margin-top: 0.1;
+  }
+  .content :last-child {
+    margin-bottom: 0;
+  }
+  
+  .form {
+    background-color: var(--dusty-blue-lighter);
+    padding: 1.5rem;
+  }
+  
+  .label {
+    margin-bottom: 0.3rem;
+    margin-top: 0.8rem;
+    font-weight: 700;
+    display: block;
+  }
+  
+  .form input {
+    padding: 0.6rem;
+    width: 14.8rem;
+  }
+  .form select {
+    padding: 0.6rem;
+    width: 14.8rem;
+  }
+  .button {
+    padding: 0.7rem;
+    width: 7.8rem;
+    background: var(--blue);
+    color: var(--white);
+    vertical-align: middle;
+  }
+  .form .checkbox {
+    width: 15px;
+    height: 15px;
+    margin-right: 1rem;
+  }
+  .button:hover {
+    background: var(--hover);
+  }
+  .list_section ul {
+    display: grid;
+  
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding-left: 0;
+  }
+  
+  .list_section li {
+    list-style: none;
+    margin: 0;
+    background-color: var(--dusty-aqua);
+    padding: 1rem;
+    border-radius: 0px;
+    position: relative;
+  }
+  
+  .list_section li h1 {
+    color: var(--dark-blue);
+    font-weight: 600;
+  }
+  
+  .list_section li button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 15px;
+    text-align: center;
+    top: 10px;
+    right: 10px;
+  }
+  .list_section li button:hover{
+    background-color: var(--hover);
+  }

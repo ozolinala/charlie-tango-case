@@ -48,9 +48,10 @@ export default function Home(props) {
         <title>Find buyer | EDC</title>
       </Head>
       <div className="wrapper">
+        <div className={styles.head}>
         <h1 className={styles.headline1}>Find a </h1>
         <h1 className={styles.headline}> buyer </h1>{" "}
-        <h1 className={styles.headline1}>for your property</h1>
+        <h1 className={styles.headline1}>for your property</h1></div>
         <div className={styles.content}>
           <h2>Start the search</h2>
           <p>
@@ -60,43 +61,7 @@ export default function Home(props) {
             the property that you are planning to sell.{" "}
           </p>
           <form onSubmit={handleSubmit} className={styles.form}>
-
-            <label for="zipCode">
-              <span className={styles.label}>Zip Code</span>
-              <input
-                value={zipCode}
-                onChange={handleZipCode}
-                name="zipCode"
-                type="number"
-                inputMode="numeric"
-              />
-            </label>
-
-            <br />
-            <label for="price">
-              <span className={styles.label}>Price</span>
-              <input
-                value={price}
-                onChange={handlePrice}
-                name="price"
-                type="number"
-                inputMode="numeric"
-                required
-              />
-            </label>
-            <label for="size" className={styles.sizeIcon}>
-              <span className={styles.label}>Size</span>
-              <input
-                value={size}
-                onChange={handleSize}
-                name="size"
-                type="number"
-                inputMode="numeric"
-                required
-              />
-            </label>
-
-            <label for="estateType">
+          <label for="estateType">
               <span val className={styles.label}>
                 Estate type
               </span>
@@ -114,6 +79,42 @@ export default function Home(props) {
                 ))}
               </select>
             </label>
+            <label for="zipCode">
+              <span className={styles.label}>Zip Code</span>
+              <input
+                value={zipCode}
+                onChange={handleZipCode}
+                name="zipCode"
+                type="number"
+                inputMode="numeric"
+              />
+            </label>
+
+            <br />
+            <label for="size" className={styles.sizeIcon}>
+              <span className={styles.label}>Size</span>
+              <input
+                value={size}
+                onChange={handleSize}
+                name="size"
+                type="number"
+                inputMode="numeric"
+                required
+              />
+            </label>
+            <label for="price">
+              <span className={styles.label}>Price</span>
+              <input
+                value={price}
+                onChange={handlePrice}
+                name="price"
+                type="number"
+                inputMode="numeric"
+                required
+              />
+            </label>
+
+
             <br /> <br />
             <button className={styles.button}>
               <svg

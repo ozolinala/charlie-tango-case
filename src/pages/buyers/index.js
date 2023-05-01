@@ -25,22 +25,21 @@ export default function Buyers(props) {
       </Head>
 
       <div className="wrapper">
-        <button
+        <div className={styles.container}>
+      <button className={styles.button}
           onClick={() => {
             router.push("/contact");
           }}
         >
           Next Step
-        </button>
-
-        <h1 className={styles.headline}>Potential buyers</h1>
+        </button></div>
+        <div className={styles.head}>
+        <h1 className={styles.headline1}>PROPOSALS FOR </h1>
+        <h1 className={styles.headline}> homes </h1>{" "}
+        <h1 className={styles.headline1}>FOR SALE</h1></div>
         <BuyerCard addSelected={addSelected} removeSelected={removeSelected} />
-        <div className={styles.content}>
-          <h2>Query params:</h2>
-          <pre>
-            <code>{JSON.stringify(query, null, 2)}</code>
-          </pre>
-        </div>
+        <br></br>
+        <br></br><br></br> <br></br> <br></br>
       </div>
     </>
   );
