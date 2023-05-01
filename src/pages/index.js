@@ -11,24 +11,24 @@ export default function Home() {
   const [price, setPrice] = useState("");
   const router = useRouter();
 
-  const handleZipCodeChange = (event) => {
-    setZipCode(event.target.value);
+  const handleZipCode = (e) => {
+    setZipCode(e.target.value);
   };
 
-  const handleEstateTypeChange = (event) => {
-    setEstateType(event.target.value);
+  const handleEstateType = (e) => {
+    setEstateType(e.target.value);
   };
 
-  const handleSizeChange = (event) => {
-    setSize(event.target.value);
+  const handleSize = (e) => {
+    setSize(e.target.value);
   };
 
-  const handlePriceChange = (event) => {
-    setPrice(event.target.value);
+  const handlePrice = (e) => {
+    setPrice(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     router.push({
       pathname: "/buyers",
       query: { zipCode, estateType, size, price },
@@ -44,42 +44,47 @@ export default function Home() {
         <h1 className={styles.headline}>Homepage</h1>
         <div className={styles.content}>
           <form onSubmit={handleSubmit} className={styles.form}>
-            <label>
+            <label for="zipCode">
               <span className={styles.label}>Zip Code</span>
               <input
                 value={zipCode}
-                onChange={handleZipCodeChange}
+                onChange={handleZipCode}
                 name="zipCode"
-                required
+                type="number"
+                inputMode="numeric"
               />
             </label>
             <br />
-            <label>
+            <label for="price">
               <span className={styles.label}>Price</span>
               <input
                 value={price}
-                onChange={handlePriceChange}
+                onChange={handlePrice}
                 name="price"
+                type="number"
+                inputMode="numeric"
                 required
               />
             </label>
-            <label className={styles.sizeIcon}>
+            <label for="size" className={styles.sizeIcon}>
               <span className={styles.label}>Size</span>
               <input
                 value={size}
-                onChange={handleSizeChange}
+                onChange={handleSize}
                 name="size"
+                type="number"
+                inputMode="numeric"
                 required
               />
             </label>
-            <label>
+            <label for="estateType">
               <span val className={styles.label}>
                 Estate type
               </span>
 
               <select
                 value={estateType}
-                onChange={handleEstateTypeChange}
+                onChange={handleEstateType}
                 name="estateType"
                 required
               >
