@@ -17,13 +17,31 @@
   line-height: 1.2;
   display: inline;
 }
+.headline3 {
+  font-size: 7.2rem;
+  font-family: var(--font-serif);
+  text-align: center;
+  font-weight: 400;
+  color:var(--yellow);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  display: inline;
+}
 .head{
   text-align: center;
+}
+.head2{
+  text-align: center;
+  margin-top: 8rem;
 }
 .content {
   padding: 1rem;
   background-color: var(--dusty-aqua-light);
   border: 1px solid var(--dusty-aqua);
+  margin-bottom: 1rem;
+}
+.content2 {
+text-align: center;
   margin-bottom: 1rem;
 }
 .content :first-child {

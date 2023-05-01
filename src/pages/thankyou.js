@@ -8,9 +8,10 @@ export default function Contact() {
         <title>Thank You | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1 className={styles.headline}>Thank You</h1>{" "}
-        <div className={styles.content}>
-          <h2>You will hear from us within 1-2 working days.</h2>
+        <div className={styles.head2}>
+        <h1 className={styles.headline3}>Thank You</h1>{" "}</div>
+        <div className={styles.content2}>
+          <h2>You will hear from us within 1-2 working days</h2>
         </div>
       </div>
     </>

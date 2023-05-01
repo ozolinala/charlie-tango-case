@@ -34,9 +34,8 @@ export default function Buyers(props) {
           Next Step
         </button></div>
         <div className={styles.head}>
-        <h1 className={styles.headline1}>PROPOSALS FOR </h1>
-        <h1 className={styles.headline}> homes </h1>{" "}
-        <h1 className={styles.headline1}>FOR SALE</h1></div>
+        <h1 className={styles.headline}> Potential buyers </h1>{" "}
+</div>
         <BuyerCard addSelected={addSelected} removeSelected={removeSelected} />
         <br></br>
         <br></br><br></br> <br></br> <br></br>

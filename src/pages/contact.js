@@ -54,9 +54,8 @@ export default function Contact(props) {
 
       <div className="wrapper">
       <div className={styles.head}>
-        <h1 className={styles.headline1}>TIME FOR </h1>
-        <h1 className={styles.headline}> your contact </h1>{" "}
-        <h1 className={styles.headline1}>DETAILS</h1></div>
+        <h1 className={styles.headline}> Your contact details</h1>{" "}
+      </div>
         <div className={styles.content}>
           <div className={styles.list_section}>
             <h2 className={styles.name}>Selected Buyers</h2>
