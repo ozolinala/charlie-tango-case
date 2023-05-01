@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styles from "../../pages/buyers/Buyers.module.css";
 import { estateTypes } from "@/data/estateTypes";
 
-export function BuyerCard() {
+export function BuyerCard(props) {
   const [buyers, setBuyers] = useState([]);
   const { query } = useRouter();
   useEffect(() => {
@@ -34,24 +34,34 @@ export function BuyerCard() {
     return estateType ? estateType.name : null;
   }
 
-  function test(e) {
-    console.log(e.target.cheched);
+
+
+  function handleSelected(e, buyer) {
+    if (e.target.checked) {
+      props.addSelected(buyer);
+    } else {
+      props.removeSelected(buyer.id);
+    }
   }
+
+
   return (
     <div className={styles.buyersCardGrid}>
       {buyers.map((buyer) => (
         <div className={styles.buyersCard} key={buyer.id}>
-          <div className={styles.CheckboxFlex}>
-            <p>
-              <strong>ID: </strong> {buyer.id}
-            </p>
-            <input
-              className={styles.checkBoxFavorite}
-              type="checkbox"
-              name="favoriteCheck"
-              onChange={test}
-            ></input>
-          </div>
+
+        
+
+          <input
+            type="checkbox"
+            onChange={(e) => {
+              handleSelected(e, buyer);
+            }}
+          ></input>
+          <p>
+            <strong>ID: </strong> {buyer.id}
+          </p>
+
 
           <p>
             <span className={styles.estateTypeStyling}>

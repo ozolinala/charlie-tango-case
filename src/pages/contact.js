@@ -3,13 +3,11 @@ import styles from "./Home.module.css";
 import { useState } from "react";
 import Selected from "@/components/Header/Selected";
 
-export default function Contact() {
-  const [selectedBuyers, setSelectedBuyers] = useState([
-    { id: "buyerID_1", description: "weird family 1" },
-    { id: "buyerID_2", description: "weird family 2" },
-    { id: "buyerID_3", description: "weird family 3" },
-    { id: "buyerID_4", description: "weird family 4" },
-  ]);
+export default function Contact(props) {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON;
+
+  const [selectedBuyers, setSelectedBuyers] = useState([...props.selectedList]);
 
   function removeSelectedBuyer(id) {
     setSelectedBuyers((oldList) => {
@@ -30,13 +28,13 @@ export default function Contact() {
   }
 
   function postSeller(seller) {
-    fetch("https://jebydpkuuyyogrpubntk.supabase.co/rest/v1/wines", {
+    fetch("https://tqxrssraxgpssjpdurca.supabase.co/rest/v1/Sellers", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
         Prefer: "return=representation",
         apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImplYnlkcGt1dXl5b2dycHVibnRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk5MTk0MjIsImV4cCI6MTk5NTQ5NTQyMn0.wvAEE9l5FvXvjFmU5qsuyIK0QG2YFdyGRzLJ8qjgZMo",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxeHJzc3JheGdwc3NqcGR1cmNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODIzMjU4MDQsImV4cCI6MTk5NzkwMTgwNH0.hhSvz3ws9gqKU7aEIa2iU0xiyWFguL4sr0QpP7hcloo",
       },
       body: JSON.stringify(seller),
     })
