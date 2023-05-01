@@ -46,7 +46,29 @@ export default function Home() {
         <h2>Start the search</h2>
           <p>  In order for us to effectively identify potential buyers, we kindly request that you provide us with the necessary information regarding the property that you are planning to sell. </p>
           <form onSubmit={handleSubmit} className={styles.form}>
+<<<<<<< HEAD
+          <label>
+              <span val className={styles.label}>
+                Estate type
+              </span>
+
+              <select
+                value={estateType}
+                onChange={handleEstateTypeChange}
+                name="estateType"
+                required
+              >
+                {estateTypes.map(({ id, name }) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+=======
             <label for="zipCode">
+>>>>>>> 92dbc7079be47243ee692757f1df8ff185eb16e1
               <span className={styles.label}>Zip Code</span>
               <input
                 value={zipCode}
@@ -56,6 +78,9 @@ export default function Home() {
                 inputMode="numeric"
               />
             </label>
+<<<<<<< HEAD
+            <label className={styles.sizeIcon}>
+=======
             <br />
             <label for="price">
               <span className={styles.label}>Price</span>
@@ -69,6 +94,7 @@ export default function Home() {
               />
             </label>
             <label for="size" className={styles.sizeIcon}>
+>>>>>>> 92dbc7079be47243ee692757f1df8ff185eb16e1
               <span className={styles.label}>Size</span>
               <input
                 value={size}
@@ -79,6 +105,15 @@ export default function Home() {
                 required
               />
             </label>
+<<<<<<< HEAD
+            <br />
+            <label>
+              <span className={styles.label}>Price</span>
+              <input
+                value={price}
+                onChange={handlePriceChange}
+                name="price"
+=======
             <label for="estateType">
               <span val className={styles.label}>
                 Estate type
@@ -88,40 +123,7 @@ export default function Home() {
                 value={estateType}
                 onChange={handleEstateType}
                 name="estateType"
-                required
-              >
-                {estateTypes.map(({ id, name }) => (
-                  <option key={id} value={id}>
-                    {name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              <span className={styles.label}>Zip Code</span>
-              <input
-                value={zipCode}
-                onChange={handleZipCodeChange}
-                name="zipCode"
-                required
-              />
-            </label>
-            <label className={styles.sizeIcon}>
-              <span className={styles.label}>Size</span>
-              <input
-                value={size}
-                onChange={handleSizeChange}
-                name="size"
-                required
-              />
-            </label>
-            <br />
-            <label>
-              <span className={styles.label}>Price</span>
-              <input
-                value={price}
-                onChange={handlePriceChange}
-                name="price"
+>>>>>>> 92dbc7079be47243ee692757f1df8ff185eb16e1
                 required
               />
             </label>
