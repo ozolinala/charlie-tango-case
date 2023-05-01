@@ -12,20 +12,7 @@ export function BuyerCard(props) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        // apply filter based on query parameters
-        const filteredData = data.filter((buyer) => {
-          if (
-            (!query.zipCode || query.zipCode === buyer.zipCode) &&
-            (!query.estateType || query.estateType === buyer.estateType) &&
-            (!query.size || query.size <= buyer.minSize) &&
-            (!query.price || query.price >= buyer.maxPrice)
-          ) {
-            return true;
-          }
-          return false;
-        });
-        setBuyers(filteredData);
+        setBuyers(data);
       });
   }, [query]);
 
@@ -33,8 +20,6 @@ export function BuyerCard(props) {
     const estateType = estateTypes.find((type) => type.id === id);
     return estateType ? estateType.name : null;
   }
-
-
 
   function handleSelected(e, buyer) {
     if (e.target.checked) {
@@ -44,14 +29,10 @@ export function BuyerCard(props) {
     }
   }
 
-
   return (
     <div className={styles.buyersCardGrid}>
       {buyers.map((buyer) => (
         <div className={styles.buyersCard} key={buyer.id}>
-
-        
-
           <input
             type="checkbox"
             onChange={(e) => {
@@ -61,7 +42,6 @@ export function BuyerCard(props) {
           <p>
             <strong>ID: </strong> {buyer.id}
           </p>
-
 
           <p>
             <span className={styles.estateTypeStyling}>
