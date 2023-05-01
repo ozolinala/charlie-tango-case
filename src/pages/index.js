@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { estateTypes } from "@/data/estateTypes";
 
-export default function Home() {
+export default function Home(props) {
   const [size, setSize] = useState("");
   const [estateType, setEstateType] = useState("1");
   const [zipCode, setZipCode] = useState("");
@@ -32,6 +32,13 @@ export default function Home() {
     router.push({
       pathname: "/buyers",
       query: { zipCode, estateType, size, price },
+    });
+
+    props.setSellerData({
+      price: parseInt(price),
+      estateType: estateTypes[parseInt(estateType) - 1].name,
+      size: parseInt(size),
+      zipCode,
     });
   };
 
