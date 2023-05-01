@@ -15,7 +15,11 @@ function toNearestHundredThousand(number) {
  * Generate a fake profile for a potential buyer.
  * Feel free to adjust this date to fit your needs.
  */
-export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
+export function generateBuyerProfile({
+  price = 5000000,
+  size = 100,
+  estateType,
+} = {}) {
   const today = new Date();
   const endDate = new Date();
   // Set the end date to 3 months from now.
@@ -68,7 +72,7 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
     estateTypes.find((item) => item.id === result.estateType).name
   } with a minimum size of ${
     result.minSize
-  } m2 and a maximum price of ${priceFormatter.format(
+  } ㎡ and a maximum price of ${priceFormatter.format(
     result.maxPrice
   )} ${faker.lorem.sentence()}`;
 
@@ -86,10 +90,11 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
  */
 export function generateBuyerProfiles({
   zipCode,
+  estateType = undefined,
   price = undefined,
   size = undefined,
   minResults = 0,
-  maxResults = 20,
+  maxResults = 30,
 } = {}) {
   if (!zipCode) return [];
   faker.seed(zipCode);
@@ -101,6 +106,6 @@ export function generateBuyerProfiles({
         max: maxResults,
       }),
     },
-    () => generateBuyerProfile({ price, size })
+    () => generateBuyerProfile({ price, size, estateType })
   );
 }
