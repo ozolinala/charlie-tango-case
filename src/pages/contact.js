@@ -59,7 +59,7 @@ export default function Contact(props) {
         <h1 className={styles.headline1}>DETAILS</h1></div>
         <div className={styles.content}>
           <div className={styles.list_section}>
-            <h2>Selected Buyers</h2>
+            <h2 className={styles.name}>Selected Buyers</h2>
             <ul>
               {selectedBuyers.map((buyer) => (
                 <Selected
