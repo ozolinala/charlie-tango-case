@@ -18,6 +18,10 @@ export default function Contact(props) {
   function submit(e) {
     e.preventDefault();
     const newSeller = {
+      price: props.sellerData.price,
+      estateType: props.sellerData.estateType,
+      size: props.sellerData.size,
+      zipCode: props.sellerData.zipCode,
       name: e.target.elements.name.value,
       email: e.target.elements.email.value,
       phone: e.target.elements.phone.value,
