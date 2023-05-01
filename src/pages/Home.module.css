@@ -1,5 +1,5 @@
 .headline {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-family: var(--font-serif);
   text-align: center;
   font-weight: 400;
@@ -8,7 +8,7 @@
   display: inline;
 }
 .headline1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
@@ -74,25 +74,30 @@
 .list_section li {
   list-style: none;
   margin: 0;
-  background-color: var(--grey);
+  background-color: var(--dusty-aqua);
   padding: 1rem;
-  border-radius: 20px;
+  border-radius: 0px;
   position: relative;
 }
 
 .list_section li h1 {
   color: var(--dark-blue);
+  font-weight: 600;
 }
 
 .list_section li button {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: var(--dark-grey);
-  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 15px;
   text-align: center;
   top: 10px;
   right: 10px;
+}
+.list_section li button:hover{
+  background-color: var(--hover);
 }
 
 .form .checkbox {
