@@ -44,7 +44,7 @@ export default function Home() {
         <h1 className={styles.headline}>Homepage</h1>
         <div className={styles.content}>
           <form onSubmit={handleSubmit} className={styles.form}>
-            <label>
+            <label for="zipCode">
               <span className={styles.label}>Zip Code</span>
               <input
                 value={zipCode}
@@ -55,7 +55,7 @@ export default function Home() {
               />
             </label>
             <br />
-            <label>
+            <label for="price">
               <span className={styles.label}>Price</span>
               <input
                 value={price}
@@ -66,7 +66,7 @@ export default function Home() {
                 required
               />
             </label>
-            <label className={styles.sizeIcon}>
+            <label for="size" className={styles.sizeIcon}>
               <span className={styles.label}>Size</span>
               <input
                 value={size}
@@ -77,7 +77,7 @@ export default function Home() {
                 required
               />
             </label>
-            <label>
+            <label for="estateType">
               <span val className={styles.label}>
                 Estate type
               </span>

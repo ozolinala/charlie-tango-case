@@ -72,7 +72,7 @@ export function generateBuyerProfile({
     estateTypes.find((item) => item.id === result.estateType).name
   } with a minimum size of ${
     result.minSize
-  } m2 and a maximum price of ${priceFormatter.format(
+  } ㎡ and a maximum price of ${priceFormatter.format(
     result.maxPrice
   )} ${faker.lorem.sentence()}`;
 
