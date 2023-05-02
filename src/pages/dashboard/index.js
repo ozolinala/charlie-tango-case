@@ -41,16 +41,21 @@ export default function Dashboard() {
         <div className="wrapper"> <div className={styles.head}>
         <h1 className={styles.headline}>Recent Contacts</h1>
     </div>
-    <div className={styles.card}>
+    <div className={styles.cardContainer}>
       {data.map(row => (
-        <div key={row.id} className="card">
+        <div key={row.id} className={styles.card}>
                    <p> {new Date(row.created_at).toLocaleString()}</p>
 
           <h2>{row.name}</h2>
-          <strong>Email:</strong> <p><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></p>         
-          <p><strong>Phone:</strong> <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}>+45 {row.phone}</a></p>         <strong>Estate Type:</strong><p>{row.estateType}</p>
-          <strong>Price:</strong><p>{row.price.toLocaleString('en-US', { style: 'currency', currency: 'DKK' })}</p>         <strong>Size:</strong> <p>{row.size}</p>
-        </div>
+          <p><strong>Email:</strong> <a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></p>         
+          <p><strong>Phone:</strong> <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}>+45 {row.phone}</a></p>         
+          <h3> {row.estateType}</h3>
+          <span className={styles.sizeIcon}></span>
+            {row.size + " ㎡"}
+           <p> <span className={styles.budgetIcon}></span>
+           {row.price.toLocaleString('en-US', { style: 'currency', currency: 'DKK' }).slice(0, -3)}
+       </p> 
+       </div>
       ))}
     </div>
     </div></>

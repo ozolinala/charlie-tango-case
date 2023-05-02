@@ -55,17 +55,35 @@
 }
 
 .card {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-color: var(--dusty-aqua-light);
+  padding: 1rem;
+  border-radius: 1px;
+  border-bottom: 4px solid var(--dark-blue);
+  box-shadow: var(--grey)1px 4px 4px 1px;
 }
 
 .card p {
-  margin: 0 0 10px;
+  margin: 1px 0 10px;
+}
+.card a{
+  text-decoration: none;
+  color: var(--blue);
 }
 .cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+.sizeIcon::before {
+  content: url("../../assets/icon-min-area.svg");
+  vertical-align: middle;
+  margin-right: 16px;
+}
+.budgetIcon::before {
+  content: url("../../assets/icon-budget.svg");
+  vertical-align: middle;
+  margin-right: 16px;
+  margin-top: 3rem;
+
 }
