@@ -63,7 +63,7 @@ export default function Dashboard() {
           <span className={styles.sizeIcon}></span>
             {row.size + " ㎡"}
            <p> <span className={styles.budgetIcon}></span>
-           {row.price.toLocaleString('en-US', { style: 'currency', currency: 'DKK' }).slice(0, -3)}
+           {row.price.toLocaleString("en-US", { useGrouping: true, minimumFractionDigits: 0 }).replace(/,/g, ".") + " DKK"}
        </p> 
        </div>
       ))}
