@@ -60,6 +60,7 @@
   border-radius: 1px;
   border-bottom: 4px solid var(--dark-blue);
   box-shadow: var(--grey)1px 4px 4px 1px;
+  position: relative;
 }
 
 .card p {
@@ -86,4 +87,19 @@
   margin-right: 16px;
   margin-top: 3rem;
 
+}
+.removeButton{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 15px;
+  text-align: center;
+  top: 14px;
+  right: 14px;
+}
+
+.card button:hover{
+  background-color: var(--hover);
 }

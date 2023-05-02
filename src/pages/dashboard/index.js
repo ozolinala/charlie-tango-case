@@ -25,6 +25,16 @@ export default function Dashboard() {
     fetchData()
   }, [])
 
+  const handleDelete = async (id) => {
+    try {
+      const { error } = await supabase.from('Sellers').delete().eq('id', id)
+      if (error) throw error
+      setData(data.filter(row => row.id !== id))
+    } catch (error) {
+      setError(error.message)
+    }
+  }
+
   if (error) {
     return <div>Error: {error}</div>
   }
@@ -44,11 +54,11 @@ export default function Dashboard() {
     <div className={styles.cardContainer}>
       {data.map(row => (
         <div key={row.id} className={styles.card}>
-                   <p> {new Date(row.created_at).toLocaleString()}</p>
+<button className={`${styles.removeButton}`} onClick={() => handleDelete(row.id)}>X</button>                   <p> {new Date(row.created_at).toLocaleString()}</p>
 
           <h2>{row.name}</h2>
-          <p><strong>Email:</strong> <a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></p>         
-          <p><strong>Phone:</strong> <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}>+45 {row.phone}</a></p>         
+          <p><>Email:</> <a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></p>         
+          <p><>Phone:</> <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}>+45 {row.phone}</a></p>         
           <h3> {row.estateType}</h3>
           <span className={styles.sizeIcon}></span>
             {row.size + " ㎡"}
