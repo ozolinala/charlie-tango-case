@@ -1,60 +1,63 @@
 import Head from "next/head";
 import styles from "./Dashboard.module.css";
+import { useState, useEffect } from 'react'
+// import ContactCard from "@/components/ContactCard";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-async function fetchData() {
-  const { data, error } = await supabase.from("charlie-tango-case").select("*");
+const supabase = createClient('https://tqxrssraxgpssjpdurca.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxeHJzc3JheGdwc3NqcGR1cmNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODIzMjU4MDQsImV4cCI6MTk5NzkwMTgwNH0.hhSvz3ws9gqKU7aEIa2iU0xiyWFguL4sr0QpP7hcloo')
 
-  if (error) throw error;
-  return data;
-}
+export default function Dashboard() {
+  const [data, setData] = useState(null)
+  const [error, setError] = useState(null)
 
-export default function Dashboard({ data }) {
-    return (
-      <>
-        <Head>
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const { data, error } = await supabase.from('Sellers').select('*')
+        if (error) throw error
+        setData(data)
+      } catch (error) {
+        setError(error.message)
+      }
+    }
+    fetchData()
+  }, [])
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+
+  if (!data) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <>
+    <Head>
           <title>Find buyer | EDC</title>
         </Head>
-        <div className="wrapper">
+        <div className="wrapper"> <div className={styles.head}>
         <h1 className={styles.headline}>Recent Contacts</h1>
-          <ul>
-            {data.map((item) => (
-              <li key={item.id}>
-                <strong>ID:</strong> {item.id}, <strong>Created at:</strong>{" "}
-                {item.created_at}, <strong>Zip Code:</strong> {item.zipCode},{" "}
-                <strong>Estate Type:</strong> {item.estateType},{" "}
-                <strong>Price:</strong> {item.price}, <strong>Size:</strong>{" "}
-                {item.size}, <strong>Buyer ID:</strong> {item.buyerID.join(", ")},{" "}
-                <strong>Name:</strong> {item.name}, <strong>Email:</strong>{" "}
-                {item.email}, <strong>Phone:</strong> {item.phone},{" "}
-                <strong>Allow Contact:</strong> {item.allowContact ? "Yes" : "No"}
-              </li>
-            ))}
-          </ul>
+    </div>
+    <div className={styles.card}>
+      {data.map(row => (
+        <div key={row.id} className="card">
+          <h2>{row.name}</h2>
+          <strong>Email:</strong> <p><a href={`mailto:${row.email}`}>{row.email}</a></p>         
+          <p><strong>Phone:</strong> <a href={`tel:${row.phone}`}>+45 {row.phone}</a></p>         <strong>Estate Type:</strong><p>{row.estateType}</p>
+          <strong>Price:</strong><p>{row.price.toLocaleString('en-US', { style: 'currency', currency: 'DKK' })}</p>         <strong>Size:</strong> <p>{row.size}</p>
+         <p><strong>Contacted at:</strong> {new Date(row.created_at).toLocaleString()}</p>
+         <strong>ID:</strong> <p>{row.id}</p>
         </div>
-      </>
-    );
-  }
+      ))}
+    </div>
+    </div></>
+  )
+}
+
   
-  export async function getStaticProps() {
-    const supabase = createClient(supabaseUrl, supabaseAnonKey);
-    const { data, error } = await supabase.from("charlie-tango-case").select("*");
   
-    if (error) {
-      console.error(error);
-      return {
-        props: {
-          data: [],
-        },
-      };
-    }
   
-    return {
-      props: {
-        data,
-      },
-    };
-  }
+  

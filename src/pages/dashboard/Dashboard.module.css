@@ -1,12 +1,16 @@
 .headline {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-family: var(--font-serif);
   text-align: center;
   font-weight: 400;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+  color:var(--yellow);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  display: inline;
 }
-
+.head{
+  text-align: center;
+}
 .content {
   padding: 1rem;
   background-color: var(--dusty-aqua-light);
@@ -44,4 +48,19 @@
   
 
   
-  
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card p {
+  margin: 0 0 10px;
+}
