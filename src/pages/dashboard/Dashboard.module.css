@@ -62,7 +62,9 @@
   box-shadow: var(--grey)1px 4px 4px 1px;
   position: relative;
 }
-
+.card:hover {
+  box-shadow: var(--grey) 3px 7px 7px 3px;
+}
 .card p {
   margin: 1px 0 10px;
 }
