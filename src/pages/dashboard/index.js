@@ -44,12 +44,12 @@ export default function Dashboard() {
     <div className={styles.card}>
       {data.map(row => (
         <div key={row.id} className="card">
+                   <p> {new Date(row.created_at).toLocaleString()}</p>
+
           <h2>{row.name}</h2>
-          <strong>Email:</strong> <p><a href={`mailto:${row.email}`}>{row.email}</a></p>         
-          <p><strong>Phone:</strong> <a href={`tel:${row.phone}`}>+45 {row.phone}</a></p>         <strong>Estate Type:</strong><p>{row.estateType}</p>
+          <strong>Email:</strong> <p><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></p>         
+          <p><strong>Phone:</strong> <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}>+45 {row.phone}</a></p>         <strong>Estate Type:</strong><p>{row.estateType}</p>
           <strong>Price:</strong><p>{row.price.toLocaleString('en-US', { style: 'currency', currency: 'DKK' })}</p>         <strong>Size:</strong> <p>{row.size}</p>
-         <p><strong>Contacted at:</strong> {new Date(row.created_at).toLocaleString()}</p>
-         <strong>ID:</strong> <p>{row.id}</p>
         </div>
       ))}
     </div>
