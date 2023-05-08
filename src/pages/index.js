@@ -131,6 +131,7 @@ export default function Home(props) {
             </button>
           </form>
         </div>
+        <a href="./dashboard" className={styles.link}>Are you an EDC employee? Click here for Dashboard</a>
       </div>
     </>
   );

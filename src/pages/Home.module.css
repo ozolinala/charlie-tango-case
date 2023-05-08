@@ -27,6 +27,15 @@
   line-height: 1.4;
   display: inline;
 }
+.link{
+  color: var(--blue);
+  text-decoration: underline;
+  font-weight: 600;
+  font-size:0.9rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+
+}
 .head{
   text-align: center;
 }
